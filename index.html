@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OJI STORE TOP UP GAME MURAH</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+#welcome-text {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 20px 40px;
+  border-radius: 15px;
+  font-size: 1.5rem;
+  z-index: 9999;
+  opacity: 0;
+  animation: fadeInOut 5s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) scale(0.9); }
+  10% { opacity: 1; transform: translateX(-50%) scale(1); }
+  90% { opacity: 1; transform: translateX(-50%) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) scale(0.9); }
+}
+
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) scale(0.9); }
+  10% { opacity: 1; transform: translateX(-50%) scale(1); }
+  90% { opacity: 1; transform: translateX(-50%) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) scale(0.9); }
+}
+
+  
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #4b6cb7, #182848);
+      color: #fff;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 20px;
+      margin-top: 30px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+      position: relative;
+      z-index: 1;
+    }
+    h2, h3 {
+      text-align: center;
+      font-family: 'Bebas Neue', sans-serif;
+      color: #fff;
+    }
+    h2 {
+      font-size: 36px;
+      margin-bottom: 0;
+    }
+    h3 {
+      font-size: 24px;
+      margin-top: 0;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 10px;
+      border: none;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    .button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 10px;
+      background-color: #5A47FF;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .button:hover {
+      background-color: #4333CC;
+    }
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(-8px); }
+      40% { transform: translateX(8px); }
+      60% { transform: translateX(-8px); }
+      80% { transform: translateX(8px); }
+      100% { transform: translateX(0); }
+    }
+    .shake {
+      animation: shake 0.5s;
+      border: 2px solid #ff4c4c !important;
+      background-color: #ffcccc;
+    }
+    .social-links a {
+      color: inherit;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+    .social-links a:hover {
+      color: #ffcc00;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #ccc;
+    }
+    .footer a {
+      color: #25D366;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    /* Icon menu styling */
+    .menu-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #1b1464;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 0 10px rgba(90, 71, 255, 0.7);
+    }
+    .menu-icon span {
+      display: block;
+      width: 30px;
+      height: 4px;
+      background-color: white;
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    /* When active (clicked), transform lines to an X */
+    .menu-icon.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    .menu-icon.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .menu-icon.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Dropdown menu container */
+    .dropdown-menu {
+      position: fixed;
+      top: 80px;
+      left: 20px;
+      background: rgba(27, 20, 100, 0.9);
+      border-radius: 20px;
+      width: 200px;
+      box-shadow: 0 0 15px rgba(90, 71, 255, 0.7);
+      padding: 15px;
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      z-index: 999;
+    }
+    .dropdown-menu.show {
+      display: flex;
+    }
+    .dropdown-menu a {
+      color: white;
+      text-decoration: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background-color: #5A47FF;
+      transition: background-color 0.3s ease;
+      text-align: center;
+    }
+    .dropdown-menu a:hover {
+      background-color: #4333CC;
+    }
+  </style>
+</head>
+<body>
+<div id="welcome-text"></div>
+
+  <!-- Menu icon -->
+  <div class="menu-icon" id="menuIcon" title="Menu Fitur">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Dropdown menu -->
+  <div class="dropdown-menu" id="dropdownMenu">
+    <a href="https://penghitung-winrate-ml.vercel.app/">KALKULATOR WR🧮</a>
+    <a href="https://cekregiongratisbiz.vercel.app/">CEK REGION ML/FF🌎</a>
+    <a href="https://open-ai-biz.vercel.app/">OJI OPEN AI🤖</a>
+    <a href="https://block-blast-eosin.vercel.app/">BLOCK BLAST MINI GAME🎮</a>
+    <a href="https://catur-1-oji-store.vercel.app/">CATUR [1] MINI GAME🎮</a>
+    <a href="https://catur-2-oji-store.vercel.app/">CATUR [2] MINI GAME🎮</a> 
+  </div>
+
+  <div class="container">
+    <h2>OJI STORE TOP UP GAME🎮💎💎💎</h2>
+    <h3># No.1 PALING MURAH DI 🌍
+    [☆☆☆☆☆☆☆☆☆☆]
+    </h3>
+    
+    <label for="game">Pilih Game [🎮]</label>
+    <select id="game" onchange="updateDiamondOptions()">
+      <option value="ml">Mobile Legends</option>
+      <option value="ff">Free Fire</option>
+    </select>
+
+    <label for="diamond">Jumlah Diamond [💎]</label>
+    <select id="diamond"></select>
+
+    <label for="id">ID Game [📢]</label>
+    <input type="text" id="id" placeholder="Masukkan ID Game" maxlength="25" oninput="validateNumberInput(this, 25)" />
+
+    <label for="server">ID Server [📢]</label>
+    <input type="text" id="server" placeholder="Masukkan ID Server" maxlength="10" oninput="validateNumberInput(this, 10)" />
+
+    <label for="nickname">Nickname Game [📢]</label>
+    <input type="text" id="nickname" placeholder="Masukkan Nickname Game" />
+
+    <label for="metode">Metode Pembayaran [💰]</label>
+    <select id="metode">
+      <option>DANA</option>
+      <option>OVO</option>
+      <option>GoPay</option>
+      <option>ShopeePay</option>
+      <option>Qris</option>
+      <option>Telkomsel</option>
+    </select>
+
+    <button class="button" onclick="order('whatsapp')">💬️️Order via WhatsApp️💬️</button>
+    <button class="button" onclick="order('instagram')">💬Order via Instagram💬</button>
+    <button class="button" onclick="order('telegram')">💬️Order via Telegram💬️</button>
+    <button class="button" onclick="order('facebook')">💬Order via Facebook💬</button>
+    <button class="button" onclick="order('email')">✉Order via Email
+    ✉</button>
+  </div>
+
+  <div class="container" style="margin-top: 20px; background: rgba(0,0,0,0.4);">
+    <h3>🌐☆Follow Media Sosial Kami☆🌐</h3>
+    <div class="social-links" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 10px;">
+      <a href="https://chat.whatsapp.com/BzDtqCnJfeM3Ydj2F0PNP3" target="_blank" style="color: #25D366;">
+        <img src="https://cdn-icons-png.flaticon.com/24/733/733585.png" alt="WA Group" /> Grup WA
+      </a>
+      <a href="https://whatsapp.com/channel/0029VazPVqIHltYHwnowVf3w" target="_blank" style="color: #128C7E;">
+        <img src="https://cdn-icons-png.flaticon.com/24/733/733585.png" alt="WA Channel" /> Channel WA
+      </a>
+      <a href="https:tiktok." target="_blank" style="color: #000000;">
+        <img src="https://cdn-icons-png.flaticon.com/24/3046/3046123.png" alt="TikTok" /> TikTok
+      </a>
+      <a href="https:instagram" target="_blank" style="color: #E1306C;">
+        <img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" alt="Instagram" /> Instagram
+      </a>
+      <a href="https:t.me" target="_blank" style="color: #0088cc;">
+        <img src="https://cdn-icons-png.flaticon.com/24/2111/2111646.png" alt="Telegram" /> Telegram
+      </a>
+      <a href="https:youtube" target="_blank" style="color: #FF0000;">
+        <img src="https://cdn-icons-png.flaticon.com/24/1384/1384060.png" alt="YouTube" /> YouTube
+      </a>
+      <a href="https:facebook" target="_blank" style="color: #1877F2;">
+        <img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="Facebook" /> Facebook
+      </a>
+      <a href="https:discord.gg" target="_blank" style="color: #7289da;">
+        <img src="https://cdn-icons-png.flaticon.com/24/2111/2111370.png" alt="Discord" /> Discord
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© 2025 Oji Store #No.1 paling murah. All rights reserved.</p>
+    <p>Contact WhatsApp: <a href="https://wa.me/6281327138819" target="_blank">Click here</a>📱👈</p>
+  </div>
+
+  <script>
+    const diamondOptions = {
+      ff: [
+        "5 Diamond - Rp1.100",
+        "10 Diamond - Rp1.990",
+        "20 Diamond - Rp4.100",
+        "50 Diamond - Rp8.100",
+        "70 Diamond - Rp10.100",
+        "100 Diamond - Rp16.100",
+        "140 Diamond - Rp20.100",
+        "150 Diamond - Rp22.100",
+        "210 Diamond - Rp30.100",
+        "280 Diamond - Rp40.100",
+        "355 Diamond - Rp50.100",
+        "425 Diamond - Rp60.100",
+        "495 Diamond - Rp70.100",
+        "500 Diamond - Rp71.100",
+        "720 Diamond - Rp100.100",
+        "860 Diamond - Rp120.100",
+        "1000 Diamond - Rp140.100",
+        "1075 Diamond - Rp151.100",
+        "1440 Diamond - Rp200.000",
+        "1450 Diamond - Rp200.500",
+      ],
+      ml: [
+        "3 Diamond - Rp1.000",
+        "5 Diamond - Rp1.470",
+        "10 Diamond - Rp3.200",
+        "12 Diamond - Rp3.500",
+        "14 Diamond - Rp4.000",
+        "18 Diamond - Rp5.000",
+        "19 Diamond - Rp5.700",
+        "28 Diamond - Rp8.400",
+        "36 Diamond - Rp10.000",
+        "44 Diamond - Rp11.895",
+        "54 Diamond - Rp15.595",
+        "59 Diamond - Rp16.495",
+        "71 Diamond - Rp19.895",
+        "74 Diamond - Rp20.695",
+        "85 Diamond - Rp23.495",
+        "88 Diamond - Rp24.795",
+        "110 Diamond - Rp30.995",
+        "113 Diamond - Rp31.886",
+        "128 Diamond - Rp36.200",
+        "148 Diamond - Rp41.295",
+        "170 Diamond - Rp46.795",
+        "184 Diamond - Rp51.494",
+        "222 Diamond - Rp61.795",
+        "240 Diamond - Rp65.895",
+        "258 Diamond - Rp72.000"
+      ]
+    };
+
+    function updateDiamondOptions() {
+      const game = document.getElementById("game").value;
+      const diamondSelect = document.getElementById("diamond");
+      diamondSelect.innerHTML = "";
+      diamondOptions[game].forEach(option => {
+        const opt = document.createElement("option");
+        opt.value = option;
+        opt.textContent = option;
+        diamondSelect.appendChild(opt);
+      });
+    }
+
+    function validateNumberInput(input, maxLength) {
+      const val = input.value;
+      if (!/^\d*$/.test(val)) {
+        input.classList.add('shake');
+        setTimeout(() => {
+          input.classList.remove('shake');
+        }, 500);
+        input.value = val.replace(/\D/g, '');
+      }
+      if (val.length > maxLength) {
+        input.value = val.slice(0, maxLength);
+      }
+    }
+
+    function order(channel) {
+      const game = document.getElementById("game").value;
+      const diamond = document.getElementById("diamond").value;
+      const idGame = document.getElementById("id").value;
+      const server = document.getElementById("server").value;
+      const nickname = document.getElementById("nickname").value.trim();
+      const metode = document.getElementById("metode").value;
+
+      if (!idGame || !server || !nickname) {
+        alert('Mohon isi ID Game, ID Server, dan Nickname Game dengan benar!! .');
+        return;
+      }
+
+      const pesan = 
+        `Kak Mau TopUp\n` +
+        `Game: ${game === 'ff' ? 'Free Fire' : 'Mobile Legends'}\n` +
+        `Diamond: ${diamond}\n` +
+        `ID Game: ${idGame}\n` +
+        `ID Server: ${server}\n` +
+        `Nickname Game: ${nickname}\n` +
+        `Metode Pembayaran: ${metode}`;
+
+      if (channel === 'whatsapp') {
+        window.open(`https://wa.me/6281327138819?text=${encodeURIComponent(pesan)}`, '_blank');
+      } else if (channel === 'instagram') {
+        alert("Silakan hubungi via Instagram: @username_seller\nPesan yang ingin dikirim:\n" + pesan);
+        window.open(`Link Instagram??`, '_blank');
+      } else if (channel === 'telegram') {
+        alert("Silakan hubungi via Telegram: @username_seller\nPesan yang ingin dikirim:\n" + pesan);
+        window.open(`LINK TELEGRAM`, '_blank');
+      } else if (channel === 'facebook') {
+        alert("Silakan hubungi via Facebook: username_seller\nPesan yang ingin dikirim:\n" + pesan);
+        window.open(`link facebok?`, '_blank');
+      } else if (channel === 'email') {
+        const subject = encodeURIComponent("Order Top Up " + (game === 'ff' ? 'Free Fire' : 'Mobile Legends'));
+        const body = encodeURIComponent(pesan);
+        window.location.href = `mailto:mlbbsaya10081@gmail.com?subject=${subject}&body=${body}`;
+      } else if (channel === 'discord') {
+        alert("Silakan kirim pesan ke server Discord kami.\nPesan yang ingin dikirim:\n" + pesan);
+        window.open(`link discord?`, '_blank');
+      }
+    }
+
+    // Toggle dropdown menu on icon click
+    const menuIcon = document.getElementById('menuIcon');
+    const dropdownMenu = document.getElementById('dropdownMenu');
+
+    menuIcon.addEventListener('click', () => {
+      menuIcon.classList.toggle('active');
+      dropdownMenu.classList.toggle('show');
+    });
+
+    // Close dropdown if clicked outside
+    window.addEventListener('click', function(e) {
+      if (!menuIcon.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        menuIcon.classList.remove('active');
+        dropdownMenu.classList.remove('show');
+      }
+    });
+
+    window.onload = updateDiamondOptions;
+  </script>
+  <script>
+  function getGreeting() {
+    const hour = new Date().getHours();
+    if (hour >= 4 && hour < 11) return "Halo, selamat pagi kak😊!";
+    if (hour >= 11 && hour < 15) return "Halo, selamat siang kak😊!";
+    if (hour >= 15 && hour < 18) return "Halo, selamat sore kak😊!";
+    return "Halo, selamat malam kak😊!";
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const welcome = document.getElementById('welcome-text');
+    welcome.textContent = getGreeting();
+    setTimeout(() => welcome.remove(), 3000);
+  });
+</script>
+</body>
+</html>
